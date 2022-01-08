@@ -25,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/roboto_regular"
         android:padding="12dp"
         android:textColor="#FF2A2A2A"
@@ -76,7 +77,7 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDeviceStatus"
-        tools:text="Size - 1600 x 800" />
+        tools:text="Price - $30" />
 
     <TextView
         android:id="@+id/tvReviewLabel"
@@ -86,12 +87,12 @@
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:fontFamily="@font/roboto_regular"
-        android:padding="12dp"
+        android:padding="8dp"
         android:textColor="#FF2A2A2A"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvDeviceSize"
-        tools:text="Reviews: " />
+        android:text="@string/reviews" />
 
 
     <RatingBar
@@ -100,7 +101,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/roboto_regular"
-        android:padding="4dp"
+        android:padding="2dp"
         android:rating="3"
         app:layout_constraintStart_toEndOf="@id/tvReviewLabel"
         app:layout_constraintTop_toBottomOf="@id/tvDeviceSize" />

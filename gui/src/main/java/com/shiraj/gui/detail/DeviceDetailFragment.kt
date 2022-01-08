@@ -21,7 +21,7 @@ class DeviceDetailFragment : BaseFragment() {
     override val binding: FragmentDeviceDetailBinding
         get() = super.binding as FragmentDeviceDetailBinding
 
-    val deviceInfo: DeviceDetailFragmentArgs by navArgs()
+    private val deviceInfo: DeviceDetailFragmentArgs by navArgs()
 
     override fun onInitView() {
 
@@ -30,7 +30,7 @@ class DeviceDetailFragment : BaseFragment() {
                 tvDeviceName.text = "Name - ${it.title}"
                 tvDeviceOS.text = "OS - ${it.type}"
                 tvDeviceStatus.text = "Status - ${it.status}"
-                tvDeviceSize.text = "Size - ${it.price}"
+                tvDeviceSize.text = "Price - ${it.price}"
             }
         }
     }

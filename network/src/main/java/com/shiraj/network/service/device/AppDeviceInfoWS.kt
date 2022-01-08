@@ -1,7 +1,9 @@
-package com.shiraj.network
+package com.shiraj.network.service.device
 
-import com.shiraj.core.DeviceDetailModel
-import com.shiraj.core.DeviceInfoWS
+import com.shiraj.core.model.DeviceDetailModel
+import com.shiraj.core.webservice.DeviceInfoWS
+import com.shiraj.network.networkCall
+import com.shiraj.network.response.toDevicesDetails
 import javax.inject.Inject
 
 class AppDeviceInfoWS @Inject constructor(

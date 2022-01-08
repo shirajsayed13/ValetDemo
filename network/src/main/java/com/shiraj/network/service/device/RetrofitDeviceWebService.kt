@@ -1,5 +1,6 @@
-package com.shiraj.network
+package com.shiraj.network.service.device
 
+import com.shiraj.network.response.DevicesResponse
 import retrofit2.http.GET
 
 interface RetrofitDeviceWebService {

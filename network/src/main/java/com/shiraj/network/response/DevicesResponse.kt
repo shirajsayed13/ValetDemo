@@ -1,7 +1,7 @@
-package com.shiraj.network
+package com.shiraj.network.response
 
 
-import com.shiraj.core.DeviceDetailModel
+import com.shiraj.core.model.DeviceDetailModel
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 

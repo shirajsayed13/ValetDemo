@@ -1,6 +1,6 @@
 package com.shiraj.network
 
-import com.shiraj.core.WebServiceFailure
+import com.shiraj.core.webservice.WebServiceFailure
 import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.JsonEncodingException
 import kotlinx.coroutines.Dispatchers

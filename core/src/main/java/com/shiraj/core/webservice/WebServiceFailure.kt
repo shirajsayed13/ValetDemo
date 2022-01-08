@@ -1,4 +1,4 @@
-package com.shiraj.core
+package com.shiraj.core.webservice
 
 import com.shiraj.base.Failure
 

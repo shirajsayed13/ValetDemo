@@ -1,5 +1,7 @@
-package com.shiraj.core
+package com.shiraj.core.usecase
 
+import com.shiraj.core.model.DeviceDetailModel
+import com.shiraj.core.webservice.DeviceInfoWS
 import javax.inject.Inject
 
 class GetDeviceInfoUseCase @Inject constructor(

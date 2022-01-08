@@ -1,4 +1,4 @@
-package com.shiraj.core
+package com.shiraj.core.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

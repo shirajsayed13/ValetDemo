@@ -3,10 +3,12 @@ package com.shiraj.network
 import android.content.Context
 import android.net.ConnectivityManager
 import androidx.viewbinding.BuildConfig
-import com.shiraj.core.DeviceInfoWS
+import com.shiraj.core.webservice.DeviceInfoWS
 import com.shiraj.network.framework.AndroidNetworkConnectionMonitor
 import com.shiraj.network.framework.NetworkConnectionMonitor
 import com.shiraj.network.framework.NetworkConnectionMonitorInterceptor
+import com.shiraj.network.service.device.AppDeviceInfoWS
+import com.shiraj.network.service.device.RetrofitDeviceWebService
 import dagger.Binds
 import dagger.Module
 import dagger.Provides

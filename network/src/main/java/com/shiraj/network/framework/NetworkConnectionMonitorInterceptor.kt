@@ -1,7 +1,7 @@
 package com.shiraj.network.framework
 
 import android.net.ConnectivityManager
-import com.shiraj.core.WebServiceFailure
+import com.shiraj.core.webservice.WebServiceFailure
 import okhttp3.Interceptor
 import okhttp3.Response
 import javax.inject.Inject

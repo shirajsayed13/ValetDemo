@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/valet_graph"
+    app:startDestination="@id/deviceListingFragment">
+
+    <fragment
+        android:id="@+id/deviceListingFragment"
+        android:name="com.shiraj.gui.listing.DeviceListingFragment"
+        android:label="device_listing_fragment"
+        tools:layout="@layout/fragment_device_listing">
+        <action
+            android:id="@+id/to_deviceDetailFragment"
+            app:destination="@id/deviceDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/deviceDetailFragment"
+        android:name="com.shiraj.gui.detail.DeviceDetailFragment"
+        android:label="device_detail_fragment"
+        tools:layout="@layout/fragment_device_detail" >
+        <argument
+            android:name="deviceInfo"
+            app:argType="com.shiraj.core.model.DeviceDetailModel"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+</navigation>

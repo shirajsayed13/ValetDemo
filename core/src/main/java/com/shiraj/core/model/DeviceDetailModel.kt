@@ -12,5 +12,6 @@ data class DeviceDetailModel(
     val isFavorite: Boolean,
     val price: Int,
     val title: String,
+    val status: String,
     val type: String
 ) : Parcelable

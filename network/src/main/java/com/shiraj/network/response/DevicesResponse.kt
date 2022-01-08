@@ -13,6 +13,7 @@ internal fun DevicesResponse.Device.toDevicesDetails() = DeviceDetailModel(
     isFavorite = isFavorite,
     price = price,
     title = title,
+    status = status,
     type = type
 )
 
@@ -37,6 +38,8 @@ data class DevicesResponse(
         val price: Int,
         @Json(name = "Title")
         val title: String,
+        @Json(name = "status")
+        val status: String,
         @Json(name = "Type")
         val type: String
     )

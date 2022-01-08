@@ -50,6 +50,7 @@ dependencies {
 
     // development
     implementation appDependencies.core
+    implementation appDependencies.material
     implementation appDependencies.appcompat
     implementation appDependencies.constraintlayout
     implementation appDependencies.kotlinStdlib

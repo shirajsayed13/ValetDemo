@@ -10,3 +10,5 @@ rootProject.name = "ValetDemo"
 include ':app'
 include ':base'
 include ':core'
+include ':gui'
+include ':network'

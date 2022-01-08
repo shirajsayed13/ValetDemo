@@ -49,6 +49,9 @@ dependencies {
     def testDependencies = rootProject.ext.testDependencies
 
     // development
+    implementation project(':base')
+    implementation project(':gui')
+    implementation project(':network')
     implementation appDependencies.core
     implementation appDependencies.material
     implementation appDependencies.appcompat

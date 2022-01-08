@@ -4,6 +4,7 @@ import android.content.Context
 import android.net.ConnectivityManager
 import androidx.viewbinding.BuildConfig
 import com.shiraj.core.webservice.DeviceInfoWS
+import com.shiraj.network.BuildConfig.API_BASE_URL
 import com.shiraj.network.framework.AndroidNetworkConnectionMonitor
 import com.shiraj.network.framework.NetworkConnectionMonitor
 import com.shiraj.network.framework.NetworkConnectionMonitorInterceptor
@@ -33,7 +34,7 @@ internal object NetworkModule {
         okHttpClient: OkHttpClient,
     ): Retrofit {
         return builder
-            .baseUrl("https://demo3320392.mockable.io/")
+            .baseUrl(API_BASE_URL)
             .addConverterFactory(MoshiConverterFactory.create())
             .client(okHttpClient)
             .build()

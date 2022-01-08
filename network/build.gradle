@@ -17,6 +17,8 @@ android {
         versionCode 1
         versionName "1.0"
 
+        buildConfigField "String", "API_BASE_URL", "\"https://demo3320392.mockable.io/\""
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
     }
@@ -62,6 +64,6 @@ dependencies {
     testImplementation testDependencies.coroutinesTest
     testImplementation testDependencies.mockk
     testImplementation testDependencies.mockwebserver
-    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.core:core-ktx:1.7.0"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

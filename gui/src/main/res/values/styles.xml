@@ -24,4 +24,14 @@
         <item name="itemBackground">?attr/drawableNavigationItemBackground</item>
     </style>
 
+    <style name="RoundCornerImageViewDetail">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <style name="RoundCornerImageViewListing">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
 </resources>

@@ -33,7 +33,7 @@ class DeviceDetailFragment : BaseFragment() {
                 tvDeviceName.text = "Name - ${it.title}"
                 tvDeviceOS.text = "OS - ${it.type}"
                 tvDeviceStatus.text = "Status - ${it.status}"
-                tvDeviceSize.text = "Price - ${it.price}"
+                tvDeviceSize.text = "Price - \$${it.price}"
                 rdReview.rating = it.review.toFloat()
                 ivDeviceImage.loadUrl(it.imageUrl)
             }

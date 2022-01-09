@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="8dp">
 
-        <ImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivDeviceImage"
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -22,7 +22,8 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_devices"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearance="@style/RoundCornerImageViewListing" />
 
         <TextView
             android:id="@+id/tvDeviceName"

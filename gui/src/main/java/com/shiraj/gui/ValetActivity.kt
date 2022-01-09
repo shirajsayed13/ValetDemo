@@ -17,18 +17,9 @@ class ValetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_valet)
         drawer = findViewById(R.id.drawer)
-        val navigationView = findViewById<NavigationView>(R.id.navigationView)
+        findViewById<NavigationView>(R.id.navigationView)
 
         setSupportActionBar(findViewById(R.id.toolbar))
-
-        navigationView.setNavigationItemSelectedListener {
-            when (it.itemId) {
-                R.id.nav_home -> {
-                    true
-                }
-            }
-            true
-        }
 
         val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
         drawer.addDrawerListener(drawerToggle)

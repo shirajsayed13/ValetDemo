@@ -14,7 +14,8 @@ internal fun DevicesResponse.Device.toDevicesDetails() = DeviceDetailModel(
     price = price,
     title = title,
     status = status,
-    type = type
+    type = type,
+    review = review
 )
 
 @JsonClass(generateAdapter = true)
@@ -41,6 +42,8 @@ data class DevicesResponse(
         @Json(name = "status")
         val status: String,
         @Json(name = "Type")
-        val type: String
+        val type: String,
+        @Json(name = "review")
+        val review: Int
     )
 }

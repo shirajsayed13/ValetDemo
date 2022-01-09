@@ -13,5 +13,6 @@ data class DeviceDetailModel(
     val price: Int,
     val title: String,
     val status: String,
-    val type: String
+    val type: String,
+    val review: Int
 ) : Parcelable

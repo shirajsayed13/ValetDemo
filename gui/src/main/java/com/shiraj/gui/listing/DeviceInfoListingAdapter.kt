@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.shiraj.base.layoutInflater
 import com.shiraj.core.model.DeviceDetailModel
 import com.shiraj.gui.databinding.ItemDeviceInfoBinding
+import com.shiraj.gui.loadUrl
 import javax.inject.Inject
 import kotlin.properties.Delegates
 
@@ -23,6 +24,7 @@ class DeviceInfoListingAdapter @Inject constructor() :
             binding.apply {
                 tvDeviceName.text = info.title
                 tvDeviceStatus.text = info.status
+                ivDeviceImage.loadUrl(info.imageUrl)
             }
         }
     }

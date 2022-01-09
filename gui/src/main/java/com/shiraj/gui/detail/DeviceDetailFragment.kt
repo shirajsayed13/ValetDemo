@@ -9,6 +9,7 @@ import androidx.viewbinding.ViewBinding
 import com.shiraj.base.fragment.BaseFragment
 import com.shiraj.gui.R
 import com.shiraj.gui.databinding.FragmentDeviceDetailBinding
+import com.shiraj.gui.loadUrl
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -33,6 +34,8 @@ class DeviceDetailFragment : BaseFragment() {
                 tvDeviceOS.text = "OS - ${it.type}"
                 tvDeviceStatus.text = "Status - ${it.status}"
                 tvDeviceSize.text = "Price - ${it.price}"
+                rdReview.rating = it.review.toFloat()
+                ivDeviceImage.loadUrl(it.imageUrl)
             }
         }
     }

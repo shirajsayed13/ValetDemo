@@ -24,7 +24,4 @@
         <item name="itemBackground">?attr/drawableNavigationItemBackground</item>
     </style>
 
-    <!--<item name="itemHorizontalPadding">@dimen/navigation_item_padding</item>
-        <item name="elevation">@dimen/navigation_drawer_elevation</item>-->
-
 </resources>

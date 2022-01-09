@@ -78,6 +78,27 @@ class DeviceListingFragment : BaseFragment(), SearchView.OnQueryTextListener {
         }
     }
 
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        newText?.let {
+            if (it.length > 2) {
+                for (info in listingInfo) {
+                    if (info.title.contains(newText, ignoreCase = true)) {
+                        newInfoList.add(info)
+                    }
+                }
+                listingAdapter.info = newInfoList.toList()
+                newInfoList.clear()
+            } else {
+                listingAdapter.info = listingInfo
+            }
+        }
+        return true
+    }
+
     private fun handleFailure(e: Exception?) {
         Timber.v("handleFailure: IN")
         Timber.e(e)
@@ -96,26 +117,6 @@ class DeviceListingFragment : BaseFragment(), SearchView.OnQueryTextListener {
 
     private fun Fragment.showErrorToast(msg: String) {
         AppToast.show(requireContext(), msg, Toast.LENGTH_SHORT)
-    }
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        return false
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        newText?.let {
-            if (it.length > 2) {
-                for (info in listingInfo) {
-                    if (info.title.contains(newText, ignoreCase = true)) {
-                        newInfoList.add(info)
-                    }
-                }
-                listingAdapter.info = newInfoList.toList()
-            } else {
-                listingAdapter.info = listingInfo
-            }
-        }
-        return true
     }
 
 }

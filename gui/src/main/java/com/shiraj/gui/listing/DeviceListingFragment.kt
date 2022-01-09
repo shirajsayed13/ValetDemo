@@ -5,6 +5,7 @@ import android.view.Menu
 import android.view.MenuInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -23,7 +24,7 @@ import timber.log.Timber
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class DeviceListingFragment : BaseFragment() {
+class DeviceListingFragment : BaseFragment(), SearchView.OnQueryTextListener {
 
     override val layoutResId: Int
         get() = R.layout.fragment_device_listing
@@ -35,7 +36,11 @@ class DeviceListingFragment : BaseFragment() {
         get() = super.binding as FragmentDeviceListingBinding
 
     @Inject
-    lateinit var deviceInfoListingAdapter: DeviceInfoListingAdapter
+    lateinit var listingAdapter: DeviceInfoListingAdapter
+
+    private lateinit var listingInfo: List<DeviceDetailModel>
+
+    private var newInfoList: MutableSet<DeviceDetailModel> = mutableSetOf()
 
     private val viewModel: DeviceListingViewModel by viewModels()
 
@@ -47,21 +52,29 @@ class DeviceListingFragment : BaseFragment() {
             loadDeviceInfo()
         }
 
-        deviceInfoListingAdapter.onDeviceInfoClickListener = {
+        listingAdapter.onDeviceInfoClickListener = {
             findNavController().navigate(DeviceListingFragmentDirections.toDeviceDetailFragment(it.copy()))
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.listing_menu, menu)
+        val searchItem = menu.findItem(R.id.search)
+
+        searchItem?.let {
+            val searchView = it.actionView as SearchView
+            searchView.queryHint = "Search Devices"
+            searchView.setOnQueryTextListener(this)
+        }
     }
 
     private fun showDeviceInfo(deviceInfo: List<DeviceDetailModel>) {
+        listingInfo = deviceInfo
         binding.rvDeviceInfo.apply {
             this.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            adapter = deviceInfoListingAdapter
-            deviceInfoListingAdapter.info = deviceInfo
+            adapter = listingAdapter
+            listingAdapter.info = deviceInfo
         }
     }
 
@@ -83,6 +96,26 @@ class DeviceListingFragment : BaseFragment() {
 
     private fun Fragment.showErrorToast(msg: String) {
         AppToast.show(requireContext(), msg, Toast.LENGTH_SHORT)
+    }
+
+    override fun onQueryTextSubmit(query: String?): Boolean {
+        return false
+    }
+
+    override fun onQueryTextChange(newText: String?): Boolean {
+        newText?.let {
+            if (it.length > 2) {
+                for (info in listingInfo) {
+                    if (info.title.contains(newText, ignoreCase = true)) {
+                        newInfoList.add(info)
+                    }
+                }
+                listingAdapter.info = newInfoList.toList()
+            } else {
+                listingAdapter.info = listingInfo
+            }
+        }
+        return true
     }
 
 }

@@ -61,8 +61,8 @@ dependencies {
     implementation appDependencies.coroutines
     implementation appDependencies.coroutinesAndroid
     implementation appDependencies.timber
-    implementation appDependencies.multidex
     implementation appDependencies.hiltAndroid
+    implementation 'androidx.multidex:multidex:2.0.1'
 
     kapt appDependencies.hiltCompiler
 

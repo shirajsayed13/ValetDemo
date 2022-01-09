@@ -1,6 +1,8 @@
 package com.shiraj.gui.detail
 
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import androidx.viewbinding.ViewBinding
@@ -35,4 +37,13 @@ class DeviceDetailFragment : BaseFragment() {
         }
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.detail_menu, menu)
+        val menuIcon = menu.findItem(R.id.favorite)
+        deviceInfo.deviceInfo?.let {
+            if (it.isFavorite) {
+                menuIcon.setIcon(R.drawable.ic_favorite)
+            } else menuIcon.setIcon(R.drawable.ic_not_favorite)
+        }
+    }
 }

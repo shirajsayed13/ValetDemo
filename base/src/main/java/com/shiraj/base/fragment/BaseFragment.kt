@@ -8,7 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
 
-abstract class BaseFragment: Fragment() {
+abstract class BaseFragment : Fragment() {
 
     @get:LayoutRes
     protected abstract val layoutResId: Int
@@ -24,6 +24,7 @@ abstract class BaseFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        setHasOptionsMenu(true)
         _binding = bindingInflater(inflater, container, false)
         return binding.root
     }

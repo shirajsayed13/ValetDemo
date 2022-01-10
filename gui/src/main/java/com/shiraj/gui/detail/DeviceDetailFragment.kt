@@ -8,6 +8,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.viewbinding.ViewBinding
 import com.shiraj.base.fragment.BaseFragment
 import com.shiraj.gui.R
+import com.shiraj.gui.ValetActivity
 import com.shiraj.gui.databinding.FragmentDeviceDetailBinding
 import com.shiraj.gui.loadUrl
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,10 +31,15 @@ class DeviceDetailFragment : BaseFragment() {
 
         binding.apply {
             deviceInfo.deviceInfo?.let {
-                tvDeviceName.text = "Name - ${it.title}"
-                tvDeviceOS.text = "OS - ${it.type}"
-                tvDeviceStatus.text = "Status - ${it.status}"
-                tvDeviceSize.text = "Price - \$${it.price}"
+                (activity as ValetActivity).supportActionBar?.title = it.title
+                val title = "Name - ${it.title}"
+                tvDeviceName.text = title
+                val type = "OS - ${it.type}"
+                tvDeviceOS.text = type
+                val status = "Status - ${it.status}"
+                tvDeviceStatus.text = status
+                val price = "Price - \$${it.price}"
+                tvDeviceSize.text = price
                 rdReview.rating = it.review.toFloat()
                 ivDeviceImage.loadUrl(it.imageUrl)
             }

@@ -14,6 +14,7 @@ import com.shiraj.base.fragment.BaseFragment
 import com.shiraj.base.observe
 import com.shiraj.core.model.DeviceDetailModel
 import com.shiraj.gui.R
+import com.shiraj.gui.ValetActivity
 import com.shiraj.gui.databinding.FragmentDeviceListingBinding
 import com.shiraj.gui.handleFailure
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,7 +38,7 @@ class DeviceListingFragment : BaseFragment(), SearchView.OnQueryTextListener {
     private val viewModel: DeviceListingViewModel by viewModels()
 
     override fun onInitView() {
-
+        (activity as ValetActivity).supportActionBar?.title = getString(R.string.devices)
         viewModel.apply {
             failure(failure, ::handleFailure)
             observe(deviceInfo, ::showDeviceInfo)

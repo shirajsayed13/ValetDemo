@@ -14,14 +14,31 @@ class DeviceListingViewModel @Inject constructor(
     private val getDeviceInfoUseCase: GetDeviceInfoUseCase
 ) : BaseViewModel() {
 
+    internal lateinit var listingInfo: List<DeviceDetailModel>
+
+    private var newInfoList: MutableSet<DeviceDetailModel> = mutableSetOf()
+
+    internal fun getSearchData(newText: String?): List<DeviceDetailModel> {
+        newInfoList.clear()
+        newText?.let {
+            if (it.length > 2) {
+                for (info in listingInfo) {
+                    if (info.title.contains(newText, ignoreCase = true)) {
+                        newInfoList.add(info)
+                    }
+                }
+            }
+        }
+        return newInfoList.toList()
+    }
+
     private val _deviceInfo: MutableLiveData<List<DeviceDetailModel>> by lazy { MutableLiveData() }
     internal val deviceInfo: LiveData<List<DeviceDetailModel>> = _deviceInfo
 
     internal fun loadDeviceInfo() {
-        Timber.d("DeviceDetailModel: ")
+        Timber.d("loadDeviceInfo: ")
         launchUseCase {
             _deviceInfo.postValue(getDeviceInfoUseCase())
         }
     }
-
 }
